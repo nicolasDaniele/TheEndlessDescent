@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"C:\\Projects\\Unrean\\TheEndlessDescent\\TheEndlessDescent\\Source\\TheEndlessDescent\\TheEndlessDescent.Build.cs",
+		"C:\\Projects\\Unrean\\TheEndlessDescent\\TheEndlessDescent\\Source\\TheEndlessDescent.Target.cs",
+		"C:\\Projects\\Unrean\\TheEndlessDescent\\TheEndlessDescent\\Source\\TheEndlessDescentEditor.Target.cs"
+	],
+	"EngineVersion": "5.5.4"
+}
