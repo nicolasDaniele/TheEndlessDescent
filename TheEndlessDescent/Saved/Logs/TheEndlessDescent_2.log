@@ -1434,3 +1434,39 @@ LogConfig: Set CVar [[r.VRS.ContrastAdaptiveShading:1]]
 [2025.04.29-19.51.13:212][357]LogShaderCompilers: Display: Material DDC Serialization Only: 0.00 s (2%)
 [2025.04.29-19.51.13:212][357]LogShaderCompilers: Display: Material Cache Hits: 21 (16%)
 [2025.04.29-19.51.13:212][357]LogShaderCompilers: Display: ================================================
+[2025.04.29-19.52.28:642][356]LogRenderer: Display: Invalidated clipmap due to WPO threshold change. This can occur due to resolution or FOV changes.
+[2025.04.29-19.52.29:763][403]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2025.04.29-19.52.29:763][403]LogWorld: BeginTearingDown for /Game/TopDown/Maps/UEDPIE_0_TopDownMap
+[2025.04.29-19.52.29:766][403]LogWorld: UWorld::CleanupWorld for TopDownMap, bSessionEnded=true, bCleanupResources=true
+[2025.04.29-19.52.29:770][403]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2025.04.29-19.52.29:770][403]LogWorldPartition: UWorldPartition::Uninitialize : World = /Game/TopDown/Maps/UEDPIE_0_TopDownMap.TopDownMap
+[2025.04.29-19.52.29:787][403]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2025.04.29-19.52.29:791][403]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2025.04.29-19.52.29:802][403]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2025.04.29-19.52.29:802][403]LogAudioMixer: Deinitializing Audio Bus Subsystem for audio device with ID 2
+[2025.04.29-19.52.29:805][403]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=2
+[2025.04.29-19.52.29:808][403]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=2
+[2025.04.29-19.52.29:830][403]LogUObjectHash: Compacting FUObjectHashTables data took   0.77ms
+[2025.04.29-19.52.29:855][404]LogPlayLevel: Display: Destroying online subsystem :Context_2
+[2025.04.29-19.52.47:596][ 21]LogSlate: Took 0.001067 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-BoldCondensed.ttf' (158K)
+[2025.04.29-19.54.01:823][898]Running C:/Program Files/Epic Games/UE_5.5/Engine/Build/BatchFiles/Build.bat  -projectfiles -project="C:/Projects/Unrean/TheEndlessDescent/TheEndlessDescent/TheEndlessDescent.uproject" -game -rocket -progress
+[2025.04.29-19.54.01:931][898]Using bundled DotNet SDK version: 8.0.300
+[2025.04.29-19.54.01:931][898]Running UnrealBuildTool: dotnet "..\..\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" -projectfiles -project="C:/Projects/Unrean/TheEndlessDescent/TheEndlessDescent/TheEndlessDescent.uproject" -game -rocket -progress
+[2025.04.29-19.54.02:535][898]Log file: C:\Users\nicol\AppData\Local\UnrealBuildTool\Log_GPF.txt
+[2025.04.29-19.54.03:038][898]
+[2025.04.29-19.54.03:038][898]Generating VisualStudio2022 project files:
+[2025.04.29-19.54.03:038][898]Discovering modules, targets and source code for project...
+[2025.04.29-19.54.03:644][898]Available x64 toolchains (1):
+[2025.04.29-19.54.03:644][898] * C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433
+[2025.04.29-19.54.03:644][898]    (Family=14.42.34433, FamilyRank=1, Version=14.42.34435, Is64Bit=True, ReleaseChannel=Latest, Architecture=x64)
+[2025.04.29-19.54.03:644][898]Unavailable x64 toolchains (1):
+[2025.04.29-19.54.03:644][898] * C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.36.32532
+[2025.04.29-19.54.03:644][898]    (Family=14.36.32532, FamilyRank=1, Version=14.36.32546, Is64Bit=True, ReleaseChannel=Latest, Architecture=x64, Error="UnrealBuildTool requires at minimum the MSVC 14.38.33130 toolchain. Please install a later toolchain such as 14.38.33130 from the Visual Studio installer.")
+[2025.04.29-19.54.03:644][898]Visual Studio 2022 compiler version 14.42.34435 is not a preferred version. Please use the latest preferred version 14.38.33130
+[2025.04.29-19.54.09:502][898]Binding IntelliSense data...
+[2025.04.29-19.54.18:301][898]Binding IntelliSense data... 100%
+[2025.04.29-19.54.18:403][898]Writing project files...
+[2025.04.29-19.54.21:363][898]Writing project files... 100%
+[2025.04.29-19.54.21:363][898]
+[2025.04.29-19.54.21:363][898]Generating QueryTargets data for editor...
+[2025.04.29-19.54.21:363][898]Total execution time: 19.28 seconds

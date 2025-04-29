@@ -11,6 +11,7 @@
     <None Include="..\..\Source\TheEndlessDescentEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.vsconfig" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
@@ -58,6 +59,24 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\TheEndlessDescent\TheEndlessDescentPlayerController.h">
       <Filter>Source\TheEndlessDescent</Filter>
+    </ClCompile>
+    <Filter Include="Source\TheEndlessDescent\Private">
+      <UniqueIdentifier>{9DD88D08-9505-3802-84EB-7EB989B1AE68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\TheEndlessDescent\Private\Characters">
+      <UniqueIdentifier>{295C6B94-E616-3331-AA40-F87FFA377A9A}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\TheEndlessDescent\Private\Characters\TED_CahracterBase.cpp">
+      <Filter>Source\TheEndlessDescent\Private\Characters</Filter>
+    </ClCompile>
+    <Filter Include="Source\TheEndlessDescent\Public">
+      <UniqueIdentifier>{C3C855A1-8B11-396D-8968-ADDADD325DB4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\TheEndlessDescent\Public\Characters">
+      <UniqueIdentifier>{359B44C0-128C-3649-8FD0-458F1F0ED5CB}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\TheEndlessDescent\Public\Characters\TED_CahracterBase.h">
+      <Filter>Source\TheEndlessDescent\Public\Characters</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
