@@ -2,15 +2,15 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
-#include "TED_CahracterBase.generated.h"
+#include "TED_Character_Base.generated.h"
 
 UCLASS()
-class THEENDLESSDESCENT_API ATED_CahracterBase : public ACharacter
+class THEENDLESSDESCENT_API ATED_Character_Base : public ACharacter
 {
 	GENERATED_BODY()
 
 public:
-	ATED_CahracterBase();
+	ATED_Character_Base();
 
 protected:
 	virtual void BeginPlay() override;

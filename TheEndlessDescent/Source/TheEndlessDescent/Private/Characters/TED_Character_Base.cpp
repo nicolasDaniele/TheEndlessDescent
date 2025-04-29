@@ -1,6 +1,6 @@
-#include "Characters/TED_CahracterBase.h"
+#include "Characters/TED_Character_Base.h"
 
-ATED_CahracterBase::ATED_CahracterBase()
+ATED_Character_Base::ATED_Character_Base()
 {
 	PrimaryActorTick.bCanEverTick = false;
 
@@ -9,7 +9,7 @@ ATED_CahracterBase::ATED_CahracterBase()
 	WeaponMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 }
 
-void ATED_CahracterBase::BeginPlay()
+void ATED_Character_Base::BeginPlay()
 {
 	Super::BeginPlay();
 }
