@@ -3,13 +3,14 @@
 ATED_Character_Base::ATED_Character_Base()
 {
 	PrimaryActorTick.bCanEverTick = false;
-
-	WeaponMesh = CreateDefaultSubobject<USkeletalMeshComponent>("Weapon Mesh");
-	WeaponMesh->SetupAttachment(GetMesh(), FName("WeaponHandSocket"));
-	WeaponMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 }
 
-void ATED_Character_Base::BeginPlay()
+UAbilitySystemComponent* ATED_Character_Base::GetAbilitySystemComponent() const
 {
-	Super::BeginPlay();
+	return AbilitySystemComponent;
+}
+
+UAttributeSet* ATED_Character_Base::GetAttributeSet() const
+{
+	return AttributeSet;
 }
