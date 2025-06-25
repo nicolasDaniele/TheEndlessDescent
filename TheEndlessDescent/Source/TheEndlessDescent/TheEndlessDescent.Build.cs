@@ -10,6 +10,6 @@ public class TheEndlessDescent : ModuleRules
 
         PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "NavigationSystem", "AIModule", "Niagara", "EnhancedInput", "GameplayAbilities" });
         
-        PrivateDependencyModuleNames.AddRange(new string[] { "GameplayTags", "GameplayTags" });
+        PrivateDependencyModuleNames.AddRange(new string[] { "GameplayTags", "GameplayTasks", "Niagara", "AIModule" });
     }
 }
