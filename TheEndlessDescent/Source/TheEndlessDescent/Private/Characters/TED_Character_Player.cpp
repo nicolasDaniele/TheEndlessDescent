@@ -50,6 +50,7 @@ void ATED_Character_Player::InitAbilityActorInfo()
 	check(TedPlayerState);
 	TedPlayerState->GetAbilitySystemComponent()->InitAbilityActorInfo(TedPlayerState, this);
 
+	}
 	AbilitySystemComponent = TedPlayerState->GetAbilitySystemComponent();
 	AttributeSet = TedPlayerState->GetAttributeSet();
 }
