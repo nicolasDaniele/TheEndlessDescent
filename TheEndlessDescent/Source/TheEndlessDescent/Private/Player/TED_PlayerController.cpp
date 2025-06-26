@@ -1,6 +1,10 @@
 #include "Player/TED_PlayerController.h"
 #include "EnhancedInputSubsystems.h"
-#include "EnhancedInputComponent.h"
+#include "Input/DA_TED_InputConfig.h"
+#include "Input/TED_EnhancedInputComponent.h"
+#include "GameplayTagContainer.h"
+#include "AbilitySystem/TED_AbilitySystemComponent_Base.h"
+#include "AbilitySystemBlueprintLibrary.h"
 
 ATED_PlayerController::ATED_PlayerController()
 {
@@ -14,8 +18,10 @@ void ATED_PlayerController::BeginPlay()
 	check(TED_Context);
 
 	UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer());
-	check(Subsystem);
-	Subsystem->AddMappingContext(TED_Context, 0);
+	if (Subsystem)
+	{
+		Subsystem->AddMappingContext(TED_Context, 0);
+	}
 
 	bShowMouseCursor = true;
 	DefaultMouseCursor = EMouseCursor::Default;
@@ -30,9 +36,13 @@ void ATED_PlayerController::SetupInputComponent()
 {
 	Super::SetupInputComponent();
 
-	UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(InputComponent);
+	UTED_EnhancedInputComponent* TedEnhancedInputComponent = CastChecked<UTED_EnhancedInputComponent>(InputComponent);
 
-	EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &ATED_PlayerController::Move);
+	TedEnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &ATED_PlayerController::Move);
+	TedEnhancedInputComponent->BindAction(ShiftAction, ETriggerEvent::Started, this, &ATED_PlayerController::ShiftPressed);
+	TedEnhancedInputComponent->BindAction(ShiftAction, ETriggerEvent::Completed, this, &ATED_PlayerController::ShiftReleased);
+
+	TedEnhancedInputComponent->BindAbilityActions(InputConfig, this, &ThisClass::AbilityInputPressed, &ThisClass::AbilityInputReleased, &ThisClass::AbilityInputHeld);
 }
 
 void ATED_PlayerController::Move(const FInputActionValue& InputActionValue)
@@ -48,4 +58,59 @@ void ATED_PlayerController::Move(const FInputActionValue& InputActionValue)
 		ControlledPawn->AddMovementInput(ForwardDirection, InputAxisVector.Y);
 		ControlledPawn->AddMovementInput(RightDirection, InputAxisVector.X);
 	}
+}
+
+void ATED_PlayerController::Rotate(const FVector2D& InputVector)
+{
+	GEngine->AddOnScreenDebugMessage(1, 0.1f, FColor::Emerald,
+		FString::Printf(TEXT("Mouse X: %f | Mouse Y: %f"), InputVector.X, InputVector.Y));
+
+
+	//SetControlRotation(InputVector);
+}
+
+void ATED_PlayerController::ShiftPressed()
+{
+	bShiftKeyDown = true;
+}
+
+void ATED_PlayerController::ShiftReleased()
+{
+	bShiftKeyDown = false;
+}
+
+void ATED_PlayerController::AbilityInputPressed(FGameplayTag InputTag)
+{
+
+}
+
+void ATED_PlayerController::AbilityInputReleased(FGameplayTag InputTag)
+{
+	if (GetTedAbilitySystemComponent() == nullptr)
+	{
+		return;
+	}
+
+	GetTedAbilitySystemComponent()->AbilityInputTagReleased(InputTag);
+}
+
+void ATED_PlayerController::AbilityInputHeld(FGameplayTag InputTag)
+{
+	if (GetTedAbilitySystemComponent() == nullptr)
+	{
+		return;
+	}
+
+	GetTedAbilitySystemComponent()->AbilityInputTagHeld(InputTag);
+}
+
+UTED_AbilitySystemComponent_Base* ATED_PlayerController::GetTedAbilitySystemComponent()
+{
+	if (TedAbilitySystemComponent == nullptr)
+	{
+		TedAbilitySystemComponent = Cast<UTED_AbilitySystemComponent_Base>(
+			UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(GetPawn<APawn>()));
+	}
+	
+	return TedAbilitySystemComponent;
 }
