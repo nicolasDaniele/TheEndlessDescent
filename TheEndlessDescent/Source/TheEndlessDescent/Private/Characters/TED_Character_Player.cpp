@@ -4,6 +4,9 @@
 #include "Camera/CameraComponent.h"
 #include "Player/TED_PlayerState.h"
 #include "AbilitySystemComponent.h"
+#include "Player/TED_PlayerController.h"
+#include "UI/HUD/TED_HUD.h"
+#include "AbilitySystem/TED_AbilitySystemComponent_Base.h"
 
 ATED_Character_Player::ATED_Character_Player()
 {
@@ -34,6 +37,7 @@ void ATED_Character_Player::PossessedBy(AController* NewController)
 
 	// On the Server
 	InitAbilityActorInfo();
+	AddCharacterStartupAbilities();
 }
 
 void ATED_Character_Player::OnRep_PlayerState()
@@ -42,6 +46,7 @@ void ATED_Character_Player::OnRep_PlayerState()
 
 	// On the Client
 	InitAbilityActorInfo();
+	AddCharacterStartupAbilities();
 }
 
 void ATED_Character_Player::InitAbilityActorInfo()
@@ -50,7 +55,23 @@ void ATED_Character_Player::InitAbilityActorInfo()
 	check(TedPlayerState);
 	TedPlayerState->GetAbilitySystemComponent()->InitAbilityActorInfo(TedPlayerState, this);
 
+	if (UTED_AbilitySystemComponent_Base* TedAbilitySystemComponent = 
+		Cast<UTED_AbilitySystemComponent_Base>(TedPlayerState->GetAbilitySystemComponent()))
+	{
+		TedAbilitySystemComponent->OnAbilityActorInfoSet();
 	}
+	
 	AbilitySystemComponent = TedPlayerState->GetAbilitySystemComponent();
 	AttributeSet = TedPlayerState->GetAttributeSet();
+
+	
+	if (ATED_PlayerController* TedPlayerController = Cast<ATED_PlayerController>(GetController()))
+	{
+		if (ATED_HUD* TedHUD = Cast<ATED_HUD>(TedPlayerController->GetHUD()))
+		{
+			TedHUD->InitOverlay(TedPlayerController, TedPlayerState, AbilitySystemComponent, AttributeSet);
+		}
+	}
+
+	InitializeAttributes();
 }
