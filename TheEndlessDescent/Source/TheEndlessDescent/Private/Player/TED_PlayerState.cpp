@@ -1,10 +1,10 @@
 #include "Player/TED_PlayerState.h"
-#include "AbilitySystemComponent.h"
 #include "AbilitySystem/TED_AttributeSet_Base.h"
+#include "AbilitySystem/TED_AbilitySystemComponent_Base.h"
 
 ATED_PlayerState::ATED_PlayerState()
 {
-	AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponent>("Ability System Component");
+	AbilitySystemComponent = CreateDefaultSubobject<UTED_AbilitySystemComponent_Base>("Ability System Component");
 	AbilitySystemComponent->SetIsReplicated(true);
 	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Mixed);
 
